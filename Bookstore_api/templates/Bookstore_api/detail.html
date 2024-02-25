@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Available Bookssss</h1>
+<form method="get">
+    <input type="text" name="search" placeholder="Search Books"/>
+</form>
+
+{% for book in books %}
+{{ book }}<br>
+{% endfor %}
+
+
+{% endblock %}

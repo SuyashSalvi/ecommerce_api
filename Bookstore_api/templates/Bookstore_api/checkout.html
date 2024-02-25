@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Confirmation</title>
+</head>
+<body>
+    <h1>Checkout Confirmation</h1>
+    <p>Thank you for shopping with us!</p>
+    <p>Your order has been successfully placed. Below is the summary of your order:</p>
+ 
+    <h2>Order Summary</h2>
+    <ul>
+        {% for cart_item in cart_items %}
+            <li>{{ cart_item.book.title }} - Quantity: {{ cart_item.quantity }}  <a href="{% url 'remove_from_cart_by_cart' cart_item.book.id %}">Remove from Cart</a></li>
+        {% endfor %}
+    </ul>
+
+    <p>Total items: {{ total_quantity }}</p>
+    <p>Total price: {{ total_price }}</p>
+    <!-- You can display total price, payment details, etc. based on your application logic -->
+
+    <p>Your order will be processed shortly. We appreciate your business!</p>
+    <br>
+    <a href="{% url 'book-list' %}">Continue shopping</a>
+    <a href="{% url 'cart_view' %}">Go to Shopping Cart</a>
+</body>
+</html>

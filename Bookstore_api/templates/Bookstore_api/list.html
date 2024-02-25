@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Available Books</h1>
+
+<form method="get">
+    <input type="text" name="search" placeholder="Search Books"/>
+</form>
+<a href="{% url 'book-list' %}">All Books</a>
+<a href="{% url 'book-list' %}?order=asc">Sort Ascending</a>
+<a href="{% url 'book-list' %}?order=desc">Sort Descending</a>
+<p></p>
+
+<table class="cart">
+    <thead>
+        <tr>
+            <th><h3>Book Title</h3></th>
+            <th><h3>Author</h3></th>
+            <th><h3>Descrption</h3></th>
+            <th><h3>Price</h3></th>
+            <th><h3>Action</h3></th>
+        </tr>
+    </thead>
+{% for book in books %}
+<tr>
+    <th><p>{{ book.title }}</p></th> 
+    <th><p>{{ book.author }}</p></th> 
+    <th><p>{{ book.description }}</p></th>
+    <th><p>{{ book.price }}</p></th>
+    <th><a href="{% url 'add_to_cart' book.id %}" onclick="showNotification()">Add to Cart</a><br></th>
+</tr>
+
+{% endfor %}
+</table>
+
+<a href="{% url 'cart_view' %}">Go to Shopping Cart</a>
+<a href="{% url 'profile' %}">View Profile</a>
+
+<script>
+    function showNotification() {
+        alert('Book added to cart!');
+    }
+</script>
+
+{% endblock %}
