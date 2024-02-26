@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django
+*.log
+db.sqlite3
+media/
+static/
+
+# Docker
+docker-compose.yml
+Dockerfile
+
+# Environment variables
+.env
+
+# IDE settings
+.vscode/
+.idea/
+
+# Compiled Python files
+*.pyc
+
+# Compiled C extensions
+*.pyd
+*.pyo
+
+# Dependency directories
+env/
+venv/
+env_bak/
+venv_bak/
+
+# Miscellaneous
+*.swp
+.DS_Store

@@ -8,6 +8,8 @@ class BookListView(generics.ListCreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
 
+
+
 @login_required
 def booksview(request):
     search_query = request.GET.get('search',"")

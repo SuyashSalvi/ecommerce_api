@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.contrib.auth import get_user_model
+
 
 # title, author, description, price, and availability.
 class Book(models.Model):
@@ -14,11 +14,9 @@ class Book(models.Model):
     #     book_detail = self.title+ " "+self.author+" "+ self.description
     #     return book_detail
 
-def get_default_user_id():
-    user, created = User.objects.get_or_create(username='test')
-    return user.id
+
 
 class ShoppingCartItem(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE,default=get_default_user_id)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,default=None)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
